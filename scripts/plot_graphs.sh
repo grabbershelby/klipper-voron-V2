@@ -2,15 +2,6 @@
 ###################################
 ###### GRAPH PLOTTING SCRIPT ######
 ###################################
-# Written by Frix_x#0161 #
-# @version: 1.4
-
-# CHANGELOG:
-#   v1.4: added the ~/klipper dir parameter to the call of graph_vibrations.py for a better user handling (in case user is not "pi")
-#   v1.3: some documentation improvement regarding the line endings that needs to be LF for this file
-#   v1.2: added the movement name to be transfered to the Python script in vibration calibration (to print it on the result graphs)
-#   v1.1: multiple fixes and tweaks (mainly to avoid having empty files read by the python scripts after the mv command)
-#   v1.0: first version of the script based on a Zellneralex script
 
 # Installation:
 #   1. Copy this file somewhere in your config folder and edit the parameters below if needed
