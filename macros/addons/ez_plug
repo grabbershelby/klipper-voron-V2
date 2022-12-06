@@ -1,0 +1,30 @@
+[gcode_macro POWER_OFF_DRYER]
+description: Power off filament dryer
+gcode:
+  {action_call_remote_method("set_device_power", device="dryer", state="off")}
+
+[gcode_macro POWER_ON_DRYER]
+description: Power on filament dryer
+gcode:
+  {action_call_remote_method("set_device_power", device="dryer", state="on")}
+
+[delayed_gcode delayed_dryer_on]
+initial_duration: 10
+gcode:
+  {% if printer.idle_timeout.state == "Ready" %}
+    POWER_OFF_ON
+  {% endif %}
+
+[delayed_gcode delayed_dryer_off]
+initial_duration: 0.
+gcode:
+  {% if printer.idle_timeout.state == "Idle" %}
+    POWER_OFF_DRYER
+  {% endif %}
+
+[delayed_gcode delayed_led_off]
+initial_duration: 0.
+gcode:
+  {% if printer.idle_timeout.state == "Idle" %}
+    LED_OFF
+  {% endif %}
