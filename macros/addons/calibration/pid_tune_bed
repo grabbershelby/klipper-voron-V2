@@ -1,0 +1,9 @@
+[gcode_macro PID_AUTO_TUNE]
+description: Performs PID tune of the bed or extruder
+gcode:
+  # Define target temperature
+  {% set TARGET_TEMP = params.TARGET_TEMP|default(110)|float %}
+  M117 Tuning bed heater
+  PID_CALIBRATE HEATER=heater_bed TARGET={TARGET_TEMP}
+	TURN_OFF_HEATERS
+	SAVE_CONFIG
